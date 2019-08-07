@@ -14,14 +14,16 @@ router.get('/new', middleHandler, (req, res) => {
 
 // 顯示一筆 Todo 的詳細內容
 router.get('/:id', middleHandler, (req, res) => {
-	Todo.findOne( (err, todo) => {
+	Todo.findById(req.params.id, (err, todo) => {
 		if (err) return console.error(err)
 		return res.render('detail', { todo: todo })
 	})
 })
 // 新增一筆  Todo
 router.post('/', middleHandler, (req, res) => {
-	const todo = Todo()
+	const todo = new Todo({
+		name: req.body.name
+	})
 	todo.save(err => {
 		if (err) return console.error(err)
 		return res.redirect('/')
@@ -29,14 +31,15 @@ router.post('/', middleHandler, (req, res) => {
 })
 // 修改 Todo 頁面
 router.get('/:id/edit', middleHandler, (req, res) => {
-	Todo.findOne((err, todo) => {
+	Todo.findById(req.params.id, (err, todo) => {
 		return res.render('edit', { todo: todo })
 	})
 })
 
 // 修改 Todo
 router.put('/:id', middleHandler, (req, res) => {
-	Todo.findOne((err, todo) => {
+	Todo.findById(req.params.id, (err, todo) => {
+		todo.name = req.body.name
 		if (err) return console.error(err)
 		if (req.body.done === 'on') {
 			todo.done = true
@@ -45,13 +48,13 @@ router.put('/:id', middleHandler, (req, res) => {
 		}
 		todo.save(err => {
 			if (err) return console.error(err)
-			return res.redirect(`/todos/${req.params.id}`)
+			return res.redirect('/')
 		})
 	})
 })
 // 刪除 Todo
 router.delete('/:id/delete', middleHandler, (req, res) => {
-	Todo.findOne((err, todo) => {
+	Todo.findById(req.params.id, (err, todo) => {
 		if (err) return console.error(err)
 		todo.remove(err => {
 			if (err) return console.error(err)

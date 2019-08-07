@@ -24,7 +24,7 @@ db.once('open', () => {
 app.use('/', require('./routes/home.js'))
 app.use('/todos', require('./routes/todos.js'))
 
-app.listen(2500, () => {
+app.listen(2700, () => {
 	console.log(`App running on port ${port}`)
 })
 
