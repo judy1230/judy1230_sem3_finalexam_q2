@@ -5,7 +5,7 @@
 
 # Getting Start
 <pre><code>
-[~/] $ git clone https://github.com/judy1230/sem3_finalexam_q1.git
+[~/] $ git clone https://github.com/judy1230/sem3_finalexam_q2.git
 [~/] $ npm i express
 [~/] $ npm run dev
 </pre></code>
