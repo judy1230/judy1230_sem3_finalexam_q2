@@ -10,4 +10,4 @@
 [~/] $ npm run dev
 </pre></code>
 # Display
-![Minion](https://upload.cc/i1/2019/08/07/Hez6EY.gif)
+![Minion](https://upload.cc/i1/2019/10/23/P8DwVW.gif)
