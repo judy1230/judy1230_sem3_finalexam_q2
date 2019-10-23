@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const port = 2500
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
@@ -25,7 +24,7 @@ app.use('/', require('./routes/home.js'))
 app.use('/todos', require('./routes/todos.js'))
 
 app.listen(2700, () => {
-	console.log(`App running on port ${port}`)
+	console.log(`App running on port 2700`)
 })
 
 

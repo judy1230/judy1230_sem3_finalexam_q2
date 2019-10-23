@@ -6,7 +6,7 @@ const { middleHandler } = require('../verification/logger.js')
 
 // 設定首頁路由器
 router.get('/', middleHandler, (req, res) => {
-
+  console.log('get/')
 	Todo.find()
 		.sort({ name: 'asc' })
 		.exec((err, todos) => {
